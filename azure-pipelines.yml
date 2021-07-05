@@ -36,8 +36,8 @@ steps:
   inputs:
     Contents: '**/*sppkg'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
-- task: PublishTestResults@2
+- task: PublishPipelineArtifact@1
   inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
-  displayName: 'npm install and build'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
