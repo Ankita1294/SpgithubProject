@@ -27,17 +27,17 @@ steps:
     arguments: '--ship'
     gulpjs: 'node_modules/gulp/bin/gulp.js'
     enableCodeCoverage: false
-- - task: gulp@0
+- task: gulp@0
   inputs:
     gulpFile: 'gulpfile.js'
     targets: 'package-solution'
     arguments: '--ship'
     gulpjs: 'node_modules/gulp/bin/gulp.js'
     enableCodeCoverage: false
-    - task: CopyFiles@2
-      inputs:
-        Contents: '**/*sppkg'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
+ - task: CopyFiles@2
+   inputs:
+    Contents: '**/*sppkg'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/drop'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
